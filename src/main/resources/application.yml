@@ -1,0 +1,21 @@
+#Puerto del servidor
+server:
+  port: 8081
+#Configuracion de spring
+spring:
+  #Configuracion de migracion
+  flyway:
+    enabled: true
+    baselineVersion: 1
+    locations:
+      classpath: db/migration
+    sqlMigrationSuffixes: .sql
+    baselineOnMigrate: true
+    sqlMigrationPrefix: V
+    schemas: public
+#Conexion a base de datos--info de heroku
+  datasource:
+    url: jdbc:postgresql://ec2-34-194-158-176.compute-1.amazonaws.com:5432/d9egn8oua2g1eg?socketTimeout=3
+    username: yiwhaqnlnudent
+    password: 1170a7b1d10d841772d6cb0a238da29e6703b443d7285bddaab7f8c0725d98b0
+    driverClassName: org.postgresql.Driver

@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS student(
+  id SERIAL,
+  name VARCHAR (100) NOT NULL,
+  age INT,
+  PRIMARY KEY (id)
+  );
