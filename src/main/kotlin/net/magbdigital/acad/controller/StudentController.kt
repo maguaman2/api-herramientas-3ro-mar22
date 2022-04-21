@@ -18,8 +18,17 @@ class StudentController {
     }
 
     @PostMapping
-    fun save (@RequestBody student: Student){
-        studentService.save(student)
+    fun save (@RequestBody student: Student): Student{
+        return studentService.save(student)
     }
 
+    @PutMapping
+    fun update (@RequestBody student: Student): Student{
+        return studentService.update(student)
+    }
+
+    @PatchMapping
+    fun updateName(@RequestBody student: Student): Student {
+        return studentService.update(student)
+    }
 }
