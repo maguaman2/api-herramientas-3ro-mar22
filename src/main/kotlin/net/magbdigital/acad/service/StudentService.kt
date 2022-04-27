@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service
 
 @Service
 class StudentService {
-
     @Autowired
     lateinit var studentRepository: StudentRepository
 
@@ -15,6 +14,9 @@ class StudentService {
         return studentRepository.findAll()
     }
 
+    fun getById (id: Long?):Student?{
+        return studentRepository.findById(id)
+    }
     fun save (student:Student):Student{
         return studentRepository.save(student)
     }
@@ -37,5 +39,12 @@ class StudentService {
 
         return studentRepository.save(response)
     }
+
+
+    fun delete (id:Long): Boolean{
+        studentRepository.deleteById(id)
+        return true
+    }
+
 
 }

@@ -17,6 +17,11 @@ class StudentController {
         return studentService.list()
     }
 
+    @GetMapping("/{id}")
+    fun listById (@PathVariable("id") id: Long): Student?{
+        return studentService.getById(id)
+    }
+
     @PostMapping
     fun save (@RequestBody student: Student): Student{
         return studentService.save(student)
@@ -29,6 +34,12 @@ class StudentController {
 
     @PatchMapping
     fun updateName(@RequestBody student: Student): Student {
-        return studentService.update(student)
+        return studentService.updateName(student)
     }
+
+    @DeleteMapping("/delete/{id}")
+    fun delete (@PathVariable("id") id: Long):Boolean{
+        return studentService.delete(id)
+    }
+
 }
